@@ -22,3 +22,12 @@
 - Оптимизированная цветовая палитра
 - Поддержка Treesitter и LSP
 - Интеграция с популярными плагинами
+
+## Дополнительные плагины
+
+Для полной функциональности темы рекомендуется установить:
+
+- [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim)
+```lua
+require("my_enhanced_theme.rainbow").setup()
+```
