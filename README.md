@@ -5,18 +5,15 @@
 ![Screenshot](./screenshot.png)
 
 ## Установка
-
-### Lazy.nvim
 ```lua
 {
   "Chiptune11/my_enhanced_theme",
   lazy = false,
   priority = 1000,
   config = function()
-    require("my_enhanced_theme").setup()
-  end,
+    vim.cmd.colorscheme("my_enhanced_theme")
+  end
 }
-```
 
 ### Вручную
 Скопируйте содержимое `colors/` в `~/.config/nvim/colors/`
