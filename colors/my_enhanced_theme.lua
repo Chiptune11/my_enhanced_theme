@@ -274,7 +274,6 @@ set_hl("RainbowDelimiterViolet", { fg = "#D19AFF" })  -- Фиолетовый (�
 set_hl("RainbowDelimiterCyan",   { fg = "#56B6C2" })  -- Бирюзовый (доп. цвет)
 
 
--- Настройка плагина
 local ok, _ = pcall(require, "rainbow-delimiters")
 if ok then
   require("rainbow-delimiters.setup")({
@@ -283,10 +282,7 @@ if ok then
     highlight = {
       "RainbowDelimiterRed",
       "RainbowDelimiterYellow",
-      "RainbowDelimiterBlue",
-      "RainbowDelimiterOrange",
-      "RainbowDelimiterGreen",
-      "RainbowDelimiterViolet", 
-      "RainbowDelimiterCyan",
+      -- остальные цвета...
+    }
   })
 end
