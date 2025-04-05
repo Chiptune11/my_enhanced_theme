@@ -290,5 +290,3 @@ if ok then
       "RainbowDelimiterCyan",
   })
 end
-
-как оптимизировать
