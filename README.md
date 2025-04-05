@@ -14,7 +14,7 @@
     vim.cmd.colorscheme("my_enhanced_theme")
   end
 }
-
+```
 ### Вручную
 Скопируйте содержимое `colors/` в `~/.config/nvim/colors/`
 
