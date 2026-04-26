@@ -11,6 +11,14 @@ vim.api.nvim_command("highlight clear")
 -- Включение true color
 vim.o.termguicolors = true
 
+-- Проверка прозрачности фона
+local transparent = vim.g.my_enhanced_theme_transparent or false
+local bg_color = transparent and "NONE" or "#133245"
+local float_bg = transparent and "NONE" or "#14364a"
+local pmenu_bg = transparent and "NONE" or "#1E2B38"
+local statusline_bg = transparent and "NONE" or "#2A4D6E"
+local cursorline_bg = transparent and "NONE" or "#1A3A52"
+
 -- Упрощенная функция для установки подсветки
 local function set_hl(group, opts)
   vim.api.nvim_set_hl(0, group, opts)
@@ -20,19 +28,19 @@ end
 -- Базовые настройки
 -----------------------------
 set_hl("Normal", { 
-  bg = "#133245", 
+  bg = bg_color, 
   fg = "#F0F0F0",
   blend = 0
 })
 
 set_hl("NormalFloat", { 
-  bg = "#14364a", 
+  bg = float_bg, 
   fg = "#E0E0E0"
 })
 
 set_hl("FloatBorder", { 
   fg = "#5ffff6", 
-  bg = "#14364a",
+  bg = float_bg,
   bold = false
 })
 
@@ -177,7 +185,7 @@ set_hl("Cursor", {
 })
 
 set_hl("CursorLine", { 
-  bg = "#1A3A52"  -- Без подчёркивания
+  bg = cursorline_bg  -- Без подчёркивания
 })
 
 set_hl("Visual", { 
@@ -197,7 +205,7 @@ set_hl("CursorLineNr", {
 
 -- Меню
 set_hl("Pmenu", { 
-  bg = "#1E2B38", 
+  bg = pmenu_bg, 
   fg = "#C0D0E0"
 })
 
@@ -209,7 +217,7 @@ set_hl("PmenuSel", {
 
 -- Статусная строка
 set_hl("StatusLine", { 
-  bg = "#2A4D6E", 
+  bg = statusline_bg, 
   fg = "#FFFFFF", 
   bold = false
 })
