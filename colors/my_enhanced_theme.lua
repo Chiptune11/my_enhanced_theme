@@ -50,7 +50,7 @@ set_hl("Function", {
 })
 
 set_hl("Keyword", { 
-  fg = "#f92663",  -- Розовый для ключевых слов
+  fg = "#fa3f75",  -- Розовый для ключевых слов
   bold = false
 })
 
@@ -70,7 +70,7 @@ set_hl("Type", {
 })
 
 set_hl("Operator", { 
-  fg = "#f92663",  -- Розовый для операторов
+  fg = "#fa3f75",  -- Розовый для операторов
   bold = false
 })
 
@@ -129,7 +129,7 @@ set_hl("@function.builtin", {
 
 -- Ключевые слова
 set_hl("@keyword", { 
-  fg = "#f92663",  -- Розовый
+  fg = "#fa3f75",  -- Розовый
   bold = false
 })
 
@@ -265,7 +265,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Группы для rainbow-delimiters (согласованные с вашей темой)
-set_hl("RainbowDelimiterRed",    { fg = "#f92663" })  -- Розовый (как Keyword)
+set_hl("RainbowDelimiterRed",    { fg = "#fa3f75" })  -- Розовый (как Keyword)
 set_hl("RainbowDelimiterYellow", { fg = "#e6d565" })  -- Жёлтый (как String)
 set_hl("RainbowDelimiterBlue",   { fg = "#5ffff6" })  -- Голубой (как Type)
 set_hl("RainbowDelimiterOrange", { fg = "#fd8033" })  -- Оранжевый (как variable.builtin)
