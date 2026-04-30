@@ -11,7 +11,7 @@ vim.api.nvim_command("highlight clear")
 -- Включение true color
 vim.o.termguicolors = true
 
--- Упрощенная функция для установки подсветки
+-- Упрощенная функция для установки подсветки (определена ДО использования)
 local function set_hl(group, opts)
   vim.api.nvim_set_hl(0, group, opts)
 end
@@ -56,7 +56,6 @@ set_hl("Keyword", {
 
 set_hl("String", { 
   fg = "#e6d565",  -- Жёлтый для строк
-
 })
 
 set_hl("Number", { 
@@ -240,6 +239,150 @@ set_hl("Todo", {
   underline = true
 })
 
+-----------------------------
+-- Разделители и границы
+-----------------------------
+set_hl("VertSplit", { 
+  fg = "#2A4D6E", 
+  bg = "#133245"
+})
+
+set_hl("WinSeparator", { 
+  fg = "#2A4D6E", 
+  bg = "#133245"
+})
+
+-- Номера строк (относительные)
+set_hl("LineNrAbove", { 
+  fg = "#5A6B78"
+})
+
+set_hl("LineNrBelow", { 
+  fg = "#5A6B78"
+})
+
+-- Знаки в колонке (git, diagnostic)
+set_hl("SignColumn", { 
+  bg = "#133245"
+})
+
+set_hl("Folded", { 
+  fg = "#8A9BAA", 
+  bg = "#1A3A52"
+})
+
+set_hl("FoldColumn", { 
+  fg = "#4A90E2", 
+  bg = "#133245"
+})
+
+-- Поиск и подсветка
+set_hl("Search", { 
+  fg = "#133245", 
+  bg = "#e6d565"
+})
+
+set_hl("IncSearch", { 
+  fg = "#133245", 
+  bg = "#fa3f75"
+})
+
+set_hl("CurSearch", { 
+  fg = "#133245", 
+  bg = "#5ffff6"
+})
+
+-- set_hl("MatchParen", { 
+--   fg = "#133245", 
+--   bg = "#D19AFF", 
+--   bold = true
+-- })
+
+-- Вкладки
+set_hl("TabLine", { 
+  fg = "#8A9BAA", 
+  bg = "#1A3A52"
+})
+
+set_hl("TabLineSel", { 
+  fg = "#FFFFFF", 
+  bg = "#2A4D6E", 
+  bold = true
+})
+
+set_hl("TabLineFill", { 
+  bg = "#133245"
+})
+
+-- Подсказки и сообщения
+set_hl("Question", { 
+  fg = "#5ffff6", 
+  bold = true
+})
+
+set_hl("WarningMsg", { 
+  fg = "#e6d565"
+})
+
+set_hl("ModeMsg", { 
+  fg = "#a1e232", 
+  bold = true
+})
+
+set_hl("MoreMsg", { 
+  fg = "#4A90E2"
+})
+
+-- Цвета для diff/merge
+set_hl("DiffAdd", { 
+  bg = "#1A4A2A", 
+  fg = "#a1e232"
+})
+
+set_hl("DiffChange", { 
+  bg = "#2A4A6A"
+})
+
+set_hl("DiffDelete", { 
+  bg = "#4A2A2A", 
+  fg = "#FF5555"
+})
+
+set_hl("DiffText", { 
+  bg = "#3A6A8A", 
+  bold = true
+})
+
+-----------------------------
+-- Группы для rainbow-delimiters
+-----------------------------
+set_hl("RainbowDelimiterRed",    { fg = "#fa3f75" })
+set_hl("RainbowDelimiterYellow", { fg = "#e6d565" })
+set_hl("RainbowDelimiterBlue",   { fg = "#5ffff6" })
+set_hl("RainbowDelimiterOrange", { fg = "#fd8033" })
+set_hl("RainbowDelimiterGreen",  { fg = "#a1e232" })
+set_hl("RainbowDelimiterViolet", { fg = "#D19AFF" })
+set_hl("RainbowDelimiterCyan",   { fg = "#56B6C2" })
+
+-----------------------------
+-- LSP References и подсветка
+-----------------------------
+set_hl("LspReferenceText", { 
+  bg = "#3A5F8A"
+})
+
+set_hl("LspReferenceRead", { 
+  bg = "#3A5F8A"
+})
+
+set_hl("LspReferenceWrite", { 
+  bg = "#3A5F8A"
+})
+
+set_hl("LspSignatureActiveParameter", { 
+  bg = "#2A4D6E", 
+  bold = true
+})
 
 -----------------------------
 -- Автоматические команды
@@ -251,7 +394,6 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
     vim.fn.matchadd("Todo", "\\<TODO\\>")
     vim.fn.matchadd("Todo", "\\<FIXME\\>")
     vim.fn.matchadd("Todo", "\\<NOTE\\>")
-    vim.fn.matchadd("TodoText", "\\<TODO\\>\\s*:\\?\\s*\\zs.*")
   end,
 })
 
@@ -264,16 +406,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Группы для rainbow-delimiters (согласованные с вашей темой)
-set_hl("RainbowDelimiterRed",    { fg = "#fa3f75" })  -- Розовый (как Keyword)
-set_hl("RainbowDelimiterYellow", { fg = "#e6d565" })  -- Жёлтый (как String)
-set_hl("RainbowDelimiterBlue",   { fg = "#5ffff6" })  -- Голубой (как Type)
-set_hl("RainbowDelimiterOrange", { fg = "#fd8033" })  -- Оранжевый (как variable.builtin)
-set_hl("RainbowDelimiterGreen",  { fg = "#a1e232" })  -- Зелёный (как Function)
-set_hl("RainbowDelimiterViolet", { fg = "#D19AFF" })  -- Фиолетовый (как Number)
-set_hl("RainbowDelimiterCyan",   { fg = "#56B6C2" })  -- Бирюзовый (доп. цвет)
-
-
+-- Настройка rainbow-delimiters если установлен
 local ok, _ = pcall(require, "rainbow-delimiters")
 if ok then
   require("rainbow-delimiters.setup")({
@@ -282,7 +415,11 @@ if ok then
     highlight = {
       "RainbowDelimiterRed",
       "RainbowDelimiterYellow",
-      -- остальные цвета...
+      "RainbowDelimiterBlue",
+      "RainbowDelimiterOrange",
+      "RainbowDelimiterGreen",
+      "RainbowDelimiterViolet",
+      "RainbowDelimiterCyan",
     }
   })
 end
