@@ -353,6 +353,16 @@ set_hl("DiffText", {
   bold = true
 })
 
+-- Для стандартного синтаксиса
+set_hl("Conditional", { fg = "#fa3f75", bold = false })
+set_hl("Repeat", { fg = "#fa3f75", bold = false })
+set_hl("Statement", { fg = "#fa3f75", bold = false })
+
+-- Для Treesitter (если используется)
+set_hl("@keyword.conditional", { fg = "#fa3f75", bold = false })
+set_hl("@keyword.function", { fg = "#fa3f75", bold = false })
+set_hl("@keyword.repeat", { fg = "#fa3f75", bold = false })
+
 -----------------------------
 -- Группы для rainbow-delimiters
 -----------------------------
